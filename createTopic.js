@@ -18,8 +18,10 @@ export class Topic {
             console.log("Kafka Broker'a bağlanılıyor...");
             await admin.connect();
 
+            // Kafkada daha önce oluşturulan topiclerin listesi alınıyor.
             const topics = await admin.listTopics()
-            if (!topics.includes('DovizKurlari')){
+            // Listenin içinde bizim oluşturmak istediğimiz yok ise oluşturuyor var ise konsola "Topic daha önceden oluşturulmuştur" yazıyor.
+            if (!topics.includes('DovizKurlari')) {
                 console.log("Kafka Broker'a bağlantı başarılı, Topic üretilecek..");
                 await admin.createTopics({
                     topics: [
@@ -31,14 +33,14 @@ export class Topic {
                 });
                 console.log("Topic Başarılı bir şekilde oluşturulmuştur...");
             }
-            else{
+            else {
                 console.log("Topic daha önceden oluşturulmuştur...");
             }
-            
+
             await admin.disconnect();
         } catch (error) {
             console.log("Bir Hata Oluştu", error);
-        } 
+        }
     }
 
 }
