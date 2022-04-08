@@ -1,0 +1,21 @@
+{
+  "name": "gunceldovizkurlari",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "main": "producer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node producer.js",
+    "createTopic": "node createTopic.js",
+    "consumer": "node consumer.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.26.1",
+    "kafkajs": "^1.16.0",
+    "x2js": "^3.4.3"
+  }
+}
